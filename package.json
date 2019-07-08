@@ -1,5 +1,5 @@
 {
-  "name": "d3-boxplot",
+  "name": "bens-d3-boxplot",
   "version": "0.7.5",
   "description": "d3js plugin for box-and-whisker plot",
   "keywords": [
@@ -13,10 +13,10 @@
   "license": "BSD-3-Clause",
   "main": "build/d3-boxplot.js",
   "jsnext:main": "index",
-  "homepage": "https://github.com/akngs/d3-boxplot",
+  "homepage": "https://github.com/benniferLopez/d3-boxplot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/akngs/d3-boxplot.git"
+    "url": "https://github.com/benniferLopez/d3-boxplot.git"
   },
   "watch": {
     "test": {
@@ -26,10 +26,9 @@
   },
   "scripts": {
     "watch": "npm-watch",
-    "build": "rm -rf build && mkdir build && rollup -f umd -g d3-array:d3,d3-scale:d3 -n d3 -o build/d3-boxplot.js -- index.js",
+    "build": "mkdir build && rollup -f umd -g d3-array:d3,d3-scale:d3 -n d3 -o build/d3-boxplot.js -- index.js",
     "minify": "uglifyjs build/d3-boxplot.js -c -m -o build/d3-boxplot.min.js",
-    "test": "eslint src && npm run build && tape 'test/**/*-test.js' | faucet",
-    "prepublish": "npm run test && npm run minify",
+    "test": "npm run build && tape 'test/**/*-test.js' | faucet",
     "postpublish": "zip -j build/d3-boxplot.zip -- LICENSE README.md build/d3-boxplot.js build/d3-boxplot.min.js"
   },
   "devDependencies": {
@@ -38,7 +37,7 @@
     "faucet": "0.0.1",
     "jsdom": "14",
     "npm-watch": "^0.6.0",
-    "rollup": "0.27.1",
+    "rollup": "^0.27.1",
     "tape": "4",
     "uglify-es": "3"
   },

@@ -200,8 +200,8 @@ export function boxplotStats(data, valueof) {
     {start: fiveNums[2], end: fiveNums[3]},
   ]
   const whiskers = [
-    {start: min(values.filter(d => fences[1].start <= d)), end: fiveNums[1]},
-    {start: max(values.filter(d => fences[3].end >= d)), end: fiveNums[3]},
+    {start: (min(values.filter(d => fences[1].start <= d)) ? min(values.filter(d => fences[1].start <= d)): fiveNums[0]) , end: fiveNums[1]},
+    {start: (max(values.filter(d => fences[3].end >= d)) ? max(values.filter(d => fences[3].end >= d)): fiveNums[4]), end: fiveNums[3]},
   ]
   const points = values.map((d, i) => ({
     value: d,
